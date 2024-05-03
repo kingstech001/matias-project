@@ -93,16 +93,14 @@ window.addEventListener("load", () => {
 
 const showContactBr = document.getElementById('show-contact')
 const closeContactBar = document.getElementById('close-contact')
-const contactSideBar = document.querySelector('.contact-side-bar')
 
 showContactBr.addEventListener('click', () => {
     contactSideBar.style.right = '0'
-    // closeContactBar.style.display = 'block'
+    closeContactBar.style.display = 'block'
 })
 
 closeContactBar.addEventListener('click', () => {
     contactSideBar.style.right = '-100%'
-    // closeContactBar.style.display = 'none'
 })
 
 const menu = document.querySelector('.mobile-nav-list')
@@ -110,136 +108,20 @@ const openmenuBtn = document.querySelector('#mobile-show-menu')
 const closeMenuBtn = document.querySelector('#mobile-close-menu')
 const mediaQuery = window.matchMedia('(min-width: 1024px)');
 
-// function mediaScreen(){
-//     mediaQuery.addEventListener('change', (e) => {
-//         // Get the navigation bar element
-//         const nav = document.querySelector('nav');
-
-//         // Check if the page has been scrolled
-//         if (e.matches) {
-//             // Add the "scrolled" class to the navigation bar
-//             closeMenuBtn.style.display = 'none'
-//             openmenuBtn.style.display = 'none'
-//         } else {
-//             // Remove the "scrolled" class from the navigation bar
-//             closeMenuBtn.style.display = 'block'
-//             openmenuBtn.style.display = 'block'
-//         }
-//     });
-// }
 function openMenu(){
     menu.classList.toggle('show')
+    closeMenuBtn.style.display = 'block'
+    openmenuBtn.style.display = 'none'
 }
 openmenuBtn.addEventListener('click',openMenu)
-// function closemenu(){
-//     menu.classList.toggle('show')
-//     closeMenuBtn.style.display = 'none'
-//     openmenuBtn.style.display = 'block'
-//     mediaScreen()
-// }
-// closeMenuBtn.addEventListener('click',closemenu)
 
-// const showModal = ()=>{
-//     const modal = document.createElement( 'div' );
-//     modal.classList.add("modal");
-//     document.body.appendChild(modal);
-//     const modalContainer = document.createElement( 'div' );
-//     modalContainer.classList.add("modal-container");
-//     modal.appendChild(modalContainer);
-//     const prevBtn = document.createElement('i')
-//     prevBtn.classList.add('fa-solid', 'fa-caret-left','prev-btn')
-//     modalContainer.appendChild(prevBtn)
-//     const imageContainer = document.createElement('div')
-//     imageContainer.classList.add('image-container')
-//     const closeModal = document.createElement( 'i' )
-//     closeModal.classList.add('fa-solid', 'fa-xmark', 'close-modal')
-//     imageContainer.appendChild(closeModal)
-//     const modalImage = document.createElement( 'img' )
-//     modalImage.classList.add('modal-image')
-//     const nextBtn = document.createElement('i')
-//     prevBtn.classList.add('fa-solid', 'fa-caret-right', 'next-btn')
-//     modalContainer.appendChild(nextBtn)
-// }
-// // const showImage = () => {
-// //     // modalImage.src = images[currentImageIndex]
-// //     // modal.style.display = 'block'
-// // }
-// const productCard = document.querySelectorAll('.product-card')
-// const images = []
-// productCard.forEach((card,index)=>{
-//     const image = card.querySelector('img')
-//     images.push(image.src)
-//     image.addEventListener('click',()=>{
-//         showModal()
-//         // currentImageIndex  = index;
-//         // showImage()
-//     })
-// })
-// modalImage.src = images[currentImageIndex];
-// let modalImage;
-// const showModal = () => {
-//     const modal = document.createElement('div');
-//     modal.classList.add("modal");
-//     document.body.appendChild(modal);
+function closemenu(){
+    menu.classList.toggle('show')
+    closeMenuBtn.style.display = 'none'
+    openmenuBtn.style.display = 'block'
+}
+closeMenuBtn.addEventListener('click',closemenu)
 
-//     const modalContainer = document.createElement('div');
-//     modalContainer.classList.add("modal-container");
-//     modal.appendChild(modalContainer);
-
-//     const prevBtn = document.createElement('i');
-//     prevBtn.classList.add('fa-solid', 'fa-caret-left', 'prev-btn');
-//     modalContainer.appendChild(prevBtn);
-
-//     const imageContainer = document.createElement('div');
-//     imageContainer.classList.add('image-container');
-//     modalContainer.appendChild(imageContainer);
-
-//     const closeModal = document.createElement('i');
-//     closeModal.classList.add('fa-solid', 'fa-xmark', 'close-modal');
-//     imageContainer.appendChild(closeModal);
-
-//     const modalImage = document.createElement('img');
-//     modalImage.classList.add('modal-image');
-//     imageContainer.appendChild(modalImage);
-
-//     const nextBtn = document.createElement('i');
-//     nextBtn.classList.add('fa-solid', 'fa-caret-right', 'next-btn');
-//     modalContainer.appendChild(nextBtn);
-
-//     // Add event listeners for close, previous, and next buttons
-//     closeModal.addEventListener('click', () => closeModalHandler(modal));
-//     prevBtn.addEventListener('click', showPrevImage);
-//     nextBtn.addEventListener('click', showNextImage);
-
-//     // Initial index for modal image
-//     currentImageIndex = images.indexOf(event.target.src);
-//     modalImage.src = images[currentImageIndex];
-// }
-// // currentImageIndex = images.indexOf(event.target.src);
-
-// const closeModalHandler = (modal) => {
-//     modal.remove();
-// }
-
-// const showPrevImage = () => {
-//     currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-//     modalImage.src = images[currentImageIndex];
-// }
-
-// const showNextImage = () => {
-//     currentImageIndex = (currentImageIndex + 1) % images.length;
-//     console.log('yes')
-//     modalImage.src = images[currentImageIndex];
-// }
-
-// const productCard = document.querySelectorAll('.product-card');
-// const images = [];
-
-// productCard.forEach((card, index) => {
-//     const image = card.querySelector('img');
-//     images.push(image.src);
-//     image.addEventListener('click', showModal);
-// });
 let modalImage; // Declare modalImage as a global variable
 let currentImageIndex; // Declare currentImageIndex as a global variable
 
